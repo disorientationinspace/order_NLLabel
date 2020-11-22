@@ -1,0 +1,33 @@
+$desktop-width: 1366px;
+$mobile-width: 320px;
+
+$min-res-dpi: 144dpi;
+$min-res-dppx: 1.5dppx;
+
+$pink: #ad1f54;
+$dark-pink: #843453;
+$grey: #f3f3f3;
+$white: #fff;
+$pink-white: #e6d6dd;
+
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin retina {
+	@media (min-resolution: $min-res-dpi), (min-resolution: $min-res-dppx) {
+		@content;
+	}
+}

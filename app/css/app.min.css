@@ -1,0 +1,191 @@
+.visually-hidden {
+  position: absolute!important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px,1px,1px,1px);
+  padding: 0!important;
+  border: 0!important;
+  height: 1px!important;
+  width: 1px!important;
+  overflow: hidden
+}
+body {
+  margin: 0;
+  padding: 0
+}
+@font-face {
+  font-family: "Big John Bold";
+  font-display: swap;
+  src: url(../fonts/BigJohnPRO-Bold.woff) format("woff"),url(../fonts/BigJohnPRO-Bold.woff2) format("woff2")
+}
+@font-face {
+  font-family: "MyriadPro Regular";
+  font-display: swap;
+  src: url(../fonts/MyriadPro-Regular.woff) format("woff"),url(../fonts/MyriadPro-Regular.woff2) format("woff2")
+}
+@font-face {
+  font-family: "Open Sans Regular";
+  font-display: swap;
+  src: url(../fonts/OpenSans-Regular.woff) format("woff"),url(../fonts/OpenSans-Regular.woff2) format("woff2")
+}
+.logo {
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 25px;
+  line-height: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Big John Bold",Arial,sans-serif
+}
+.header {
+  position: relative;
+  width: 1170px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+.header::after {
+  content: "";
+  z-index: -1;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%
+}
+.header__logo {
+  margin: 20px 0;
+  margin-left: 50px
+}
+.navigation {
+  padding: 0;
+  margin: 0;
+  margin: 20px 0;
+  margin-right: 60px;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.navigation__link {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Open Sans Regular",Arial,sans-serif;
+  font-size: 16px
+}
+.navigation__link:hover {
+  opacity: .6
+}
+.navigation__link:active {
+  opacity: .3
+}
+.navigation__link--active {
+  margin: 0 10px;
+  border: 1px solid #fff;
+  border-radius: 50px
+}
+.navigation__link--active:hover {
+  opacity: 1
+}
+.navigation__link--active:active {
+  opacity: 1
+}
+.main {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%
+}
+.main__background-image {
+  top: -74px;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 750px;
+  background-color: #000;
+  background-image: url(../img/background-desktop@1x.jpg)
+}
+@media (-webkit-min-device-pixel-ratio:1.5),
+(-o-min-device-pixel-ratio:3/2),
+(min-resolution:144dpi),
+(min-resolution:1.5dppx) {
+  .main__background-image {
+    background-image: url(../img/background-desktop@2x.jpg);
+    background-size: auto 750px;
+    background-position: 50% 50%;
+  }
+}
+.intro {
+  padding: 1px 0;
+  width: 1170px;
+  margin: 0 auto
+}
+.intro__slogan {
+  margin: 0 auto;
+  margin-top: 210px;
+  padding: 0;
+  width: 650px;
+  letter-spacing: .2em;
+  font-family: "MyriadPro Regular",Arial,sans-serif;
+  line-height: 70px;
+  font-size: 35px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff
+}
+.intro__quote {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans Regular",Arial,sans-serif;
+  text-align: center;
+  font-size: 16px;
+  color: #fff
+}
+.intro__dropdown {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 90px;
+  margin-top: 210px;
+  width: 36px;
+  height: 36px;
+  display: block;
+  border-radius: 50px;
+  border: none;
+  background-color: #843453;
+  cursor: pointer
+}
+.intro__dropdown:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border: 2px solid #e6d6dd;
+  border-left: none;
+  border-top: none;
+  -webkit-transform: translate(-50%,-50%) rotate(45deg);
+  -ms-transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg)
+}
