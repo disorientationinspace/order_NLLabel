@@ -1,0 +1,70 @@
+.info {
+    width: 1170px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+
+    &__about-us {
+        position: relative;
+
+        margin-top: 110px;
+        margin-left: 165px;
+        margin-bottom: 100px;
+    }
+
+    &__header {
+        margin: 0;
+        padding: 0;
+
+        font-family: $MyriadProRegular;
+        font-size: 20px;
+        line-height: 12px;
+        letter-spacing: 3px;
+
+        font-weight: 100;
+        text-transform: uppercase;
+        color: $dark-grey;
+    }
+
+    &__description {
+        margin-top: 40px;
+        margin-bottom: 0;
+
+        width: 450px;
+        color: $light-grey;
+
+        font-weight: 500;    
+        font-size: 14px;
+        line-height: 18px;
+        font-family: $OpenSansRegular;
+
+        &--pink {
+            color: $pink;
+        }
+
+        &--dark-grey {
+            color: $dark-grey
+        }
+    }
+
+    &__button {
+        margin-top: 120px;
+    }
+
+    &__picture {        
+        order: 3;
+        position: absolute;
+        right: 100px;
+        top: 0;
+        
+        margin: 0;
+        padding: 0;
+
+        background-image: url('../img/microphone.svg');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        width: 220px;
+        height: 220px;
+
+    }
+}

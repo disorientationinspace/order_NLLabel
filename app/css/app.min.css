@@ -27,6 +27,11 @@ body {
   font-display: swap;
   src: url(../fonts/OpenSans-Regular.woff) format("woff"),url(../fonts/OpenSans-Regular.woff2) format("woff2")
 }
+@font-face {
+  font-family: "Open Sans Bold";
+  font-display: swap;
+  src: url(../fonts/OpenSans-Bold.woff) format("woff"),url(../fonts/OpenSans-Bold.woff2) format("woff2")
+}
 .logo {
   padding: 0;
   margin: 0;
@@ -43,6 +48,23 @@ body {
   align-items: center;
   color: #fff;
   font-family: "Big John Bold",Arial,sans-serif
+}
+.button {
+  padding: 10px 25px;
+  font-family: "Open Sans Regular",Arial,sans-serif;
+  font-size: 16px;
+  color: #333b46;
+  border: 1px solid #333b46;
+  border-radius: 50px;
+  background: 0 0;
+  cursor: pointer
+}
+.button:hover {
+  background-color: #f3f3f3
+}
+.button--white {
+  border-color: #fff;
+  color: #fff
 }
 .header {
   position: relative;
@@ -131,10 +153,23 @@ body {
 (min-resolution:144dpi),
 (min-resolution:1.5dppx) {
   .main__background-image {
-    background-image: url(../img/background-desktop@2x.jpg);
-    background-size: auto 750px;
-    background-position: 50% 50%;
+    background-image: url(../img/background-desktop@2x.jpg)
   }
+}
+.main__info-background {
+  position: absolute;
+  z-index: -1;
+  top: 1100px;
+  background-color: #f3f3f3;
+  width: 100%;
+  height: 560px
+}
+.main__doubts-pre-background {
+  position: absolute;
+  top: 1800px;
+  width: 100px;
+  height: 230px;
+  background-color: #f3f3f3
 }
 .intro {
   padding: 1px 0;
@@ -160,6 +195,7 @@ body {
   font-family: "Open Sans Regular",Arial,sans-serif;
   text-align: center;
   font-size: 16px;
+  letter-spacing: 2px;
   color: #fff
 }
 .intro__dropdown {
@@ -188,4 +224,269 @@ body {
   -webkit-transform: translate(-50%,-50%) rotate(45deg);
   -ms-transform: translate(-50%,-50%) rotate(45deg);
   transform: translate(-50%,-50%) rotate(45deg)
+}
+.info {
+  width: 1170px;
+  margin: 0 auto;
+  padding-bottom: 70px
+}
+.info__about-us {
+  position: relative;
+  margin-top: 110px;
+  margin-left: 165px;
+  margin-bottom: 100px
+}
+.info__header {
+  margin: 0;
+  padding: 0;
+  font-family: "MyriadPro Regular",Arial,sans-serif;
+  font-size: 20px;
+  line-height: 12px;
+  letter-spacing: 3px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #333b46
+}
+.info__description {
+  margin-top: 40px;
+  margin-bottom: 0;
+  width: 450px;
+  color: #81868e;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Open Sans Regular",Arial,sans-serif
+}
+.info__description--pink {
+  color: #ad1f54
+}
+.info__description--dark-grey {
+  color: #333b46
+}
+.info__button {
+  margin-top: 120px
+}
+.info__picture {
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+  -ms-flex-order: 3;
+  order: 3;
+  position: absolute;
+  right: 100px;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  background-image: url(../img/microphone.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 220px;
+  height: 220px
+}
+.slider {
+  width: 1170px;
+  padding-top: 1px;
+  position: relative
+}
+.slider__header {
+  text-align: center
+}
+.slider__description {
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center
+}
+.slider__wrapper {
+  margin-top: 180px;
+  margin-left: 70px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 1000px
+}
+.slider__sub-header {
+  width: 100%;
+  font-family: "Open Sans Regular",Arial,sans-serif;
+  font-weight: 1;
+  font-size: 20px;
+  color: #333b46
+}
+.slider__info {
+  font-family: "Open Sans Bold",Arial,sans-serif;
+  font-size: 16px;
+  width: 400px;
+  color: #81868e
+}
+.slider__info--wide {
+  margin-left: 30px;
+  width: 570px;
+  font-size: 14px
+}
+.slider__navigation {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  padding: 0;
+  margin: 0;
+  margin-left: -27px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  -webkit-transform: translatex(-50%);
+  -ms-transform: translatex(-50%);
+  transform: translatex(-50%)
+}
+.slider__item {
+  margin-left: 27px;
+  width: 53px;
+  height: 53px
+}
+.slider__item--active .slider__button {
+  background-color: #ad1f54
+}
+.slider__item--active .slider__button:hover {
+  background-color: #ad1f54
+}
+.slider__button {
+  width: 53px;
+  height: 53px;
+  border: none;
+  border-radius: 50%;
+  background-color: #81868e;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 37px;
+  cursor: pointer
+}
+.slider__button:hover {
+  background-color: #843453
+}
+.slider__button--microphone {
+  background-image: url(../img/microphone-icon.png)
+}
+.slider__button--headphones {
+  background-image: url(../img/headphones-icon.png)
+}
+.slider__button--disco {
+  background-image: url(../img/disco-icon.png)
+}
+.releases {
+  width: 1170px;
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 500px
+}
+.releases__header {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: "MyriadPro Regular",Arial,sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 1;
+  text-align: center;
+  color: #333b46
+}
+.releases__description {
+  font-family: "Open Sans Regular",Arial,sans-serif;
+  font-size: 14px;
+  color: #81868e;
+  text-align: center
+}
+.doubts {
+  position: relative;
+  padding: 1px 0;
+  min-height: 630px;
+  width: 100%
+}
+.doubts__background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 630px;
+  background-color: #f3f3f3;
+  background-image: url(../img/doubts-background-desktop@1x.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 100%
+}
+.doubts__wrapper {
+  position: relative;
+  padding: 1px 0;
+  margin: 0 auto;
+  margin-top: 230px;
+  width: 1170px
+}
+.doubts__header {
+  margin: 0;
+  padding: 0;
+  margin-top: 70px;
+  color: #f3f3f3;
+  text-transform: uppercase;
+  font-family: "MyriadPro Regular",Arial,sans-serif;
+  font-weight: 1;
+  letter-spacing: 3px
+}
+.doubts__quote {
+  margin: 0;
+  padding: 0;
+  margin-top: 50px
+}
+.doubts__imac {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  height: 330px;
+  width: 410px;
+  background-image: url(../img/imac-nllabel-desktop@1x.png);
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+@media (-webkit-min-device-pixel-ratio:1.5),
+(-o-min-device-pixel-ratio:3/2),
+(min-resolution:144dpi),
+(min-resolution:1.5dppx) {
+  .doubts__imac {
+    background-image: url(../img/imac-nllabel-desktop@2x.png)
+  }
+}
+.quote {
+  width: 590px;
+  color: #d1d4d4;
+  font-family: "Open Sans Regular",Arial,sans-serif
+}
+.quote__text {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500
+}
+.quote__text--pink {
+  color: #ad1f54
+}
+.quote__author {
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 24px
+}
+.quote__name {
+  font-family: "Open Sans Bold",Arial,sans-serif;
+  font-weight: 1
 }

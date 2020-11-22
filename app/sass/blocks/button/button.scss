@@ -1,0 +1,22 @@
+.button {
+    padding: 10px 25px;
+
+    font-family: $OpenSansRegular;
+    font-size: 16px;
+
+    color: $dark-grey;
+    border: 1px solid $dark-grey;
+    border-radius: 50px;
+    
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $grey;
+    }
+
+    &--white {
+        border-color: white;
+        color: white;
+    }
+}
