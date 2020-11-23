@@ -18,5 +18,9 @@
     &--white {
         border-color: white;
         color: white;
+
+        &:hover {
+            background-color: rgba(6, 6, 6, 0.3);
+        }
     }
 }
