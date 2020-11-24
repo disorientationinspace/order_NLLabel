@@ -27,7 +27,7 @@
             <p class="intro__slogan">NL Label - музыка будущего</p>
             <p class="intro__quote">Делаем красиво. <br> (c) NightLoud</p>
 
-            <button class="intro__dropdown">
+            <button class="intro__dropdown dropdown">
                 <span class="visually-hidden">Дальше</span>
             </button>
         </section>
@@ -178,31 +178,37 @@
         <article class="contact">
             <div class="contact__background"></div>
             <p class="contact__slogan">Хотите попробовать? Напишите нам.</p>
-            <a href="" class="contact__link button button--white">Связаться</a>
+            <a href="https://t.me/bestbeatmainerintheworld" target="_blank" class="contact__link button button--white">Связаться</a>
         </article>
 
         <section class="contacts">
+            <div class="contacts__background"></div>
             <h2 class="contacts__header">Наши контакты</h2>
-            <div class="contacts__item contacts__item--email">
+            <div class="contacts__item">
+                <p class="contacts__photo contacts__photo--email"></p>
                 <h4 class="contacts__name">Email</h4>
-                <p class="contacts__email">disorientationinspace@gmail.com</p>
+                <p class="contacts__details">disorientationinspace@gmail.com</p>
             </div>
-            <div class="contacts__item contacts__item--office">
-                <h4 class="contacts__name"></h4>
-                <p class="contacts__email">ул. Пушинка, дом. (сами знаете какой)</p>
+            <div class="contacts__item">
+                <p class="contacts__photo contacts__photo--telegram"></p>
+                <h4 class="contacts__name">Telegram</h4>
+                <p class="contacts__details">
+                    @DJNightLoud - основатель <br>
+                    @NightLoud - группа лейбла</p>
             </div>
-            <div class="contacts__item contacts__item--email">
+            <div class="contacts__item">
+                <p class="contacts__photo contacts__photo--phone"></p>
                 <h4 class="contacts__name">Телефон</h4>
-                <p class="contacts__email">+375-33..</p>
+                <p class="contacts__details">+375-33-***-**-**</p>
             </div>
         </section>
 
         <section class="map">
             <div class="map__hover">
                 <p class="map__title">Мы на карте</p>
-                <p class="map__icon"></p>
+                <p class="map__dropdown dropdown"></p>
             </div>
-            <div style="position:relative;overflow:hidden;"><a href="https://yandex.by/maps/org/natsionalny_olimpiyskiy_stadion_dinamo/1289072121/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Национальный олимпийский стадион Динамо</a><a href="https://yandex.by/maps/157/minsk/category/stadium/184107315/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Стадион в Минске</a><iframe src="https://yandex.by/map-widget/v1/-/CCUAfSwULD" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+            <iframe class="map__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18785.881916007704!2d27.678723340516644!3d53.94532937256558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc94d307b825b%3A0xc7262a90fa4fd87d!2z0KPRgNGD0YfRjNC1LCDQnNC40L3RgdC6!5e0!3m2!1sru!2sby!4v1606246002671!5m2!1sru!2sby" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </section>
     </main>
     
@@ -210,15 +216,24 @@
         <p class="footer__logo logo">
             NL Label
         </p>
-        <p class="footer__copyright">Copyright 2020. Все права защищены.</p>
-        <p class="footer__social social">
-            <ul class="social__list">
-                <li class="social__item"><a href="" class="social__link">VK</a></li>
-                <li class="social__item"><a href="" class="social__link">Insta</a></li>
-                <li class="social__item"><a href="" class="social__link">Telega</a></li>
-            </ul>
-        </p>
+        <p class="footer__copyright">Copyright © NLLabel, 2020</p>
+        <ul class="footer__social social">
+            <li class="social__item">
+                <a href="" target="_blank" class="social__link social__link--vk">
+                    <span class="visually-hidden">ВКонтакте</span>
+                </a>
+            </li>
+            <li class="social__item">
+                <a href="" target="_blank" class="social__link social__link--instagram">
+                    <span class="visually-hidden">Инстаграмм</span>
+                </a>
+            </li>
+            <li class="social__item">
+                <a href="https://t.me/NightLoud" target="_blank" class="social__link social__link--telegram">
+                    <span class="visually-hidden">Телеграмм</span>
+                </a>
+            </li>
+        </ul>
     </footer>
-    
 </body>
 </html>

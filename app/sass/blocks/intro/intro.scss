@@ -38,39 +38,5 @@
         margin: 0px auto;
         margin-bottom: 90px;
         margin-top: 210px;
-
-        width: 36px;
-        height: 36px;
-
-        display: block;
-
-        border-radius: 50px;
-        border: none;
-        background-color: $dark-pink;
-
-        cursor: pointer;
-
-        &:hover {
-            transition-duration: .2s;
-            transform: scale(1.1);
-            opacity: .7;
-        }
-
-        &:after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-
-            width: 6px;
-            height: 6px;
-            
-            border: 2px solid $pink-white;
-            border-left: none;
-            border-top: none;
-
-            transform: translate(-50%, -50%) rotate(45deg);
-
-        }
     }
 }
