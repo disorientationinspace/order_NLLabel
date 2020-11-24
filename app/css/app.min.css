@@ -226,7 +226,10 @@ body {
   border-radius: 50%;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-position: 50% 50%
+  background-position: 50% 50%;
+  -webkit-transition-duration: .2s;
+  -o-transition-duration: .2s;
+  transition-duration: .2s
 }
 .social__link--vk {
   background-image: url(../img/vk-icon.svg)
@@ -238,6 +241,9 @@ body {
   background-image: url(../img/telegram-logo-original-icon.svg)
 }
 .social__link:hover {
+  -webkit-transition-duration: .2s;
+  -o-transition-duration: .2s;
+  transition-duration: .2s;
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1)
@@ -961,10 +967,27 @@ body {
   color: #333b46
 }
 .footer__copyright {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
   font-family: "Open Sans Regular",Arial,sans-serif;
   color: #81868e;
   text-align: center
 }
 .footer__social {
-  margin-top: 30px
+  margin-top: 20px
+}
+.footer__creator {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Open Sans Regular",Arial,sans-serif
+}
+.footer__link {
+  color: #81868e;
+  text-decoration: none
+}
+.footer__link:hover {
+  opacity: .7
 }
