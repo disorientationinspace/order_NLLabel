@@ -12,6 +12,11 @@
 
     cursor: pointer;
 
+    @include mobile {
+        width: 60px;
+        height: 60px;
+    }
+
     &:hover {
         transition-duration: .2s;
         transform: scale(1.1);
@@ -33,5 +38,9 @@
 
         transform: translate(-50%, -50%) rotate(45deg);
 
+        @include mobile {
+            width: 12px;
+            height: 12px;
+        }
     }
 }

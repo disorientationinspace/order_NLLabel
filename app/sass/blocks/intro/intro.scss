@@ -1,7 +1,15 @@
 .intro {
+    position: relative;
+
     padding: 1px 0;
-    width: 1170px;
+    box-sizing: border-box;
+
+    width: 100%;
     margin: 0 auto;
+
+    @include mobile {
+        padding: 1px 20px;
+    }
 
     &__slogan {
         margin: 0 auto;
@@ -18,6 +26,15 @@
         text-transform: uppercase;
 
         color: white;
+
+        @include mobile {
+            margin-top: 150px;
+
+            font-size: 24px;
+            line-height: 35px;
+
+            width: 100%;
+        }
     }
 
     &__quote {
@@ -30,6 +47,10 @@
 
         letter-spacing: 2px;
         color: white;
+
+        @include mobile {
+            margin-top: 10px;
+        }
     }
 
     &__dropdown {
@@ -38,5 +59,38 @@
         margin: 0px auto;
         margin-bottom: 90px;
         margin-top: 210px;
+
+        @include mobile {
+            margin-top: 150px;
+        }
+    }
+
+    &__background {
+        top: -75px;
+
+        
+        position: absolute;
+        z-index: -1;
+        
+        width: 100%;
+        height: calc(100% + 75px);
+        
+        background-color: black;
+        background-image: url('../img/background-desktop@1x.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 0;
+        
+        @include mobile {
+            top: -180px;
+            left: -20px;
+            width: calc(100% + 20px);
+
+            height: calc(100% + 180px);
+        }
+        
+        @include retina {
+            background-image: url('../img/background-desktop@2x.jpg');
+        }
     }
 }

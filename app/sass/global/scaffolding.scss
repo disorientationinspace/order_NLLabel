@@ -1,5 +1,4 @@
-$desktop-width: 1366px;
-$mobile-width: 320px;
+$desktop-width: 1300px;
 
 $min-res-dpi: 144dpi;
 $min-res-dppx: 1.5dppx;
@@ -32,6 +31,12 @@ body {
 
 @mixin retina {
 	@media (min-resolution: $min-res-dpi), (min-resolution: $min-res-dppx) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: $desktop-width) {
 		@content;
 	}
 }

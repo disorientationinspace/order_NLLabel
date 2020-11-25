@@ -1,22 +1,23 @@
 .doubts {
     position: relative;
     
+    margin-top: 50px;
     padding: 1px 0px;
     
-    min-height: 630px;
+    min-height: 430px;
     width: 100%;
 
     &__background {
         z-index: -1;
         position: absolute;
-        top: 0;
+        top: 100px;
         width: 100%;
-        height: 630px;
+        height: 330px;
 
         background-color: $grey;
         background-image: url('../img/doubts-background-desktop@1x.jpg');
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: cover;
         background-position: 50% 100%;
     }
 
@@ -25,9 +26,13 @@
 
         padding: 1px 0;
         margin: 0 auto;
-        margin-top: 230px;
+        margin-top: 60px;
 
         width: 1170px;
+
+        @include mobile {
+            width: 100%;
+        }
     }
 
     &__header {
@@ -41,12 +46,20 @@
         font-family: $MyriadProRegular;
         font-weight: 1;
         letter-spacing: 3px;
+
+        @include mobile {
+            text-align: center;
+        }
     }
 
     &__quote {
         margin: 0;
         padding: 0;
         margin-top: 50px;
+
+        @include mobile {
+            margin-top: 20px;
+        }
     }
 
     &__imac {
@@ -63,6 +76,10 @@
         
         @include retina {
             background-image: url('../img/imac-nllabel-desktop@2x.png');
+        }
+
+        @include mobile {
+            display: none;
         }
     }
 }

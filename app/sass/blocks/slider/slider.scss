@@ -2,16 +2,36 @@
     width: 1170px;
     padding-top: 1px;
     position: relative;
+
+    @include mobile {
+        padding: 1px 20px;
+        width: calc(100% - 40px);
+    }
     
     &__header {
         text-align: center;
+
+        @include mobile {
+            display: block;
+
+            margin-top: 20px;
+            width: calc(100% - 40px);
+        }
     }
 
     &__description {
         margin: 0 auto;
         margin-top: 20px;
+        
         text-align: center;
 
+        @include mobile {
+            margin: 0;
+            margin-top: 20px;
+
+            display: block;
+            width: calc(100% - 40px);
+        }
     }
 
     &__wrapper {
@@ -22,6 +42,15 @@
         flex-wrap: wrap;
 
         width: 1000px;
+
+        @include mobile {
+            margin-left: 0;
+
+            width: calc(100% - 40px);
+            max-width: 1000px;
+
+            justify-content: center;
+        }
     }
 
     &__sub-header {
@@ -31,6 +60,11 @@
         font-size: 20px;
 
         color: $dark-grey;
+
+        @include mobile {
+            font-size: 18px;
+            text-align: center;
+        }
     }
 
     &__info {
@@ -40,10 +74,23 @@
 
         color: $light-grey;
 
+        @include mobile {
+            margin: 0;
+            
+            width: 100%;
+            max-width: 400px;
+
+            text-align: center;
+        }
+        
         &--wide {
             margin-left: 30px;
             width: 570px;
             font-size: 14px;
+
+            @include mobile {
+                display: none;
+            }
         }
     }
 
@@ -57,7 +104,7 @@
         margin-left: -15px;
 
         display: flex;
-        flex-wrap: wrap;
+        justify-content: center;
         list-style: none;
 
         transform: translatex(-50%);
