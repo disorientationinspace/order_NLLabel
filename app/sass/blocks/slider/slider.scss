@@ -1,59 +1,50 @@
 .slider {
-    width: 1170px;
-    padding-top: 1px;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 70px;
     position: relative;
 
+    background-color: $grey;
+
     @include mobile {
-        padding: 1px 20px;
-        width: calc(100% - 40px);
+        padding-top: 40px;
+        padding-bottom: 120px;
     }
     
     &__header {
+        order: 0;
+        grid-row: 1;
+        grid-column: span 2;
         text-align: center;
-
-        @include mobile {
-            display: block;
-
-            margin-top: 20px;
-            width: calc(100% - 40px);
-        }
     }
 
     &__description {
+        order: 0;
+        grid-row: 2;
+        grid-column: span 2;
         margin: 0 auto;
         margin-top: 20px;
         
         text-align: center;
-
-        @include mobile {
-            margin: 0;
-            margin-top: 20px;
-
-            display: block;
-            width: calc(100% - 40px);
-        }
     }
 
-    &__wrapper {
-        margin-top: 180px;
-        margin-left: 70px;
-
-        display: flex;
-        flex-wrap: wrap;
-
-        width: 1000px;
+    &__tabcontent {
+        display: grid;
+        grid-template-columns: 400px 600px;
+        justify-content: center;
 
         @include mobile {
-            margin-left: 0;
-
-            width: calc(100% - 40px);
-            max-width: 1000px;
-
-            justify-content: center;
+            display: flex;
+            flex-direction: column;
         }
     }
 
     &__sub-header {
+        margin: 0;
+        margin-top: 150px;
+
+        grid-column: span 2;
+
         width: 100%;
         font-family: $OpenSansRegular;
         font-weight: 1;
@@ -62,6 +53,7 @@
         color: $dark-grey;
 
         @include mobile {
+            margin-top: 30px;
             font-size: 18px;
             text-align: center;
         }
@@ -75,17 +67,19 @@
         color: $light-grey;
 
         @include mobile {
-            margin: 0;
-            
-            width: 100%;
-            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 0 20px; 
+
+            width: auto;
+            max-width: 450px;
 
             text-align: center;
         }
         
         &--wide {
             margin-left: 30px;
-            width: 570px;
+            width: 520px;
             font-size: 14px;
 
             @include mobile {
@@ -108,6 +102,11 @@
         list-style: none;
 
         transform: translatex(-50%);
+
+        @include mobile {
+            top: auto;
+            bottom: 30px;
+        }
     }
 
     &__item {
