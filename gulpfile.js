@@ -18,7 +18,7 @@ function browsersync() {
 
 function scripts() {
   return src([
-    "app/js/app.js",
+    "app/js/app.js"
 ])
   .pipe(concat("app.min.js"))
   .pipe(uglify())
@@ -31,7 +31,7 @@ function styles() {
         .pipe(sass())
         .pipe(concat("app.min.css"))
         .pipe(autoprefixer({ overrideBrowserslist: ["last 15 versions"], grid: true }))
-        .pipe(cleancss(( { format: "beautify" }  )))
+        .pipe(cleancss())
         .pipe(dest("app/css"))
         .pipe(browserSync.stream());
 }

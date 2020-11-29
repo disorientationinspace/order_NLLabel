@@ -12,6 +12,10 @@ $light-grey: #81868e;
 $brown-grey: #464646;
 $pink-white: #e6d6dd;
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
 
 .visually-hidden {
 	position: absolute !important;

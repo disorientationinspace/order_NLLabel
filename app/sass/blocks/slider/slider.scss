@@ -17,20 +17,24 @@
         grid-column: span 2;
         text-align: center;
     }
-
+    
     &__description {
         order: 0;
         grid-row: 2;
         grid-column: span 2;
         margin: 0 auto;
-        margin-top: 20px;
         
         text-align: center;
+        
+        @include mobile {
+            margin-top: 20px;
+        }
     }
 
     &__tabcontent {
         display: grid;
         grid-template-columns: 400px 600px;
+        grid-template-rows: 30px 190px auto;
         justify-content: center;
 
         @include mobile {
@@ -41,7 +45,6 @@
 
     &__sub-header {
         margin: 0;
-        margin-top: 150px;
 
         grid-column: span 2;
 
@@ -114,16 +117,6 @@
 
         width: 53px;
         height: 53px;
-    
-        &--active {
-            .slider__button {
-                background-color: $pink;
-
-                &:hover {
-                    background-color: $pink;
-                }
-            }
-        }
     }
 
     &__button {
@@ -146,16 +139,24 @@
             background-color: $dark-pink;
         }
 
-        &--microphone {
+        &--recording {
             background-image: url('../img/microphone-icon.png');
         }
         
-        &--headphones {
+        &--music {
             background-image: url('../img/headphones-icon.png');
         }
         
-        &--disco {
+        &--promotion {
             background-image: url('../img/disco-icon.png');
+        }
+
+        &--active {
+            background-color: $pink;
+
+            &:hover {
+                background-color: $pink;
+            }
         }
     }
 }
