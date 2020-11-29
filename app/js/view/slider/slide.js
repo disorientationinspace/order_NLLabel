@@ -1,4 +1,4 @@
-import Abstract from './abstract.js';
+import Abstract from '../abstract.js';
 
 function createSlideTemplate(slideData) {
     const {name, title, description, subHeader, info, details} = slideData;

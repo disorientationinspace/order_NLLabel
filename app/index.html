@@ -13,26 +13,18 @@
         </p>
 
         <nav class="header__navigation navigation">
-            <a href="" class="navigation__link navigation__link--active">Привет</a>
-            <a href="" class="navigation__link">О нас</a>
-            <a href="" class="navigation__link">Команда</a>
-            <a href="" class="navigation__link">Связаться с нами</a>   
+            <a href="#intro" class="navigation__link navigation__link--active">Привет</a>
+            <a href="#about-us" class="navigation__link">О нас</a>
+            <a href="#team" class="navigation__link">Команда</a>
+            <a href="#contacts" class="navigation__link">Связаться с нами</a>   
         </nav>
     </header>
 
     <main class="main">
-        <section class="intro">
-            <div class="intro__background"></div>
-            <p class="intro__slogan">NL Label - музыка будущего</p>
-            <p class="intro__quote">Делаем красиво. <br> (c) NightLoud</p>
+        
+        <!-- INTRO -->
 
-            <button class="intro__dropdown dropdown">
-                <span class="visually-hidden">Дальше</span>
-            </button>
-        </section>
-
-        <section class="info">
-            <div class="info__background"></div>
+        <section class="info" id="about-us">
             <div class="info__about-us">
                 <h2 class="info__header">Что такое NL Label?</h2>
                 <p class="info__description">
@@ -64,51 +56,11 @@
             </div>
         </section>
 
-        <section class="team">
+        <section class="team" id="team">
             <h2 class="team__header">Команда</h2>
             <p class="team__info">Ознакомьтесь с нашей профессиональной командой</p>
         
-            <div class="team__slider bottom-slider">
-                <div class="swiper-wrapper">
-                    <div class="bottom-slider__tabcontent swiper-slide">
-                        <p class="bottom-slider__photo-container">
-                            <picture>
-                                <source srcset="../img/skrillex-photo-desktop@1x.png 1x,
-                                    ../img/skrillex-photo-desktop@2x.png 2x" media="">
-                                <img src="" alt="DJ NightLoud" class="bottom-slider__photo" width = "auto" height = "auto">    
-                            </picture>
-                        </p>
-                        <p class="bottom-slider__name">NightLoud</p>
-                        <p class="bottom-slider__position">Основатель NL Label</p>
-                        <span class="bottom-slider__pink-line"></span>
-                        <p class="bottom-slider__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequatur autem provident adipisci voluptate molestias eos cumque nulla ducimus, inventore incidunt praesentium recusandae aliquid quas exercitationem! Deleniti aspernatur incidunt ipsum, recusandae molestiae quo tempore facilis eum tempora reprehenderit unde exercitationem illum ad, perferendis id voluptatum possimus debitis et. Accusantium rerum incidunt officia nostrum, dignissimos saepe sequi perferendis dolore culpa similique aspernatur fuga recusandae natus reprehenderit inventore hic enim quos consequuntur, molestiae reiciendis! Architecto dolore aperiam ullam obcaecati ducimus! Voluptatibus commodi voluptatem iusto nulla odio! Ipsum, beatae adipisci. Qui quia voluptate, asperiores, ad minima itaque, assumenda nihil eaque consectetur hic delectus?</p>
-                    </div>
-
-                    <div class="bottom-slider__tabcontent swiper-slide">
-                        <p class="bottom-slider__photo-container">
-                        </p>
-                        <p class="bottom-slider__name">Lorem ipsum dolor sit amet.</p>
-                        <p class="bottom-slider__position">Lorem, ipsum.</p>
-                        <span class="bottom-slider__pink-line"></span>
-                        <p class="bottom-slider__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolorem inventore, consequuntur corrupti ratione voluptas optio voluptatum fugit distinctio. Soluta vel a accusantium libero velit. Similique explicabo excepturi fugiat ipsam quae sint soluta sequi placeat, minus corrupti odio? Officiis, odio maxime ab, cum corrupti ipsam error reiciendis exercitationem veritatis praesentium deleniti dolor voluptatem nulla, quam unde consequatur omnis eaque? Atque repellendus voluptas blanditiis excepturi numquam amet voluptatibus recusandae officia assumenda, pariatur aspernatur inventore dolore omnis magni quasi dignissimos doloribus dolorum eius laboriosam ullam! Praesentium aliquid natus beatae quos consequatur odit.</p>
-                    </div>
-
-                    <div class="bottom-slider__tabcontent swiper-slide">
-                        <p class="bottom-slider__photo-container">
-                        </p>
-                        <p class="bottom-slider__name">Lorem ipsum dolor sit amet.</p>
-                        <p class="bottom-slider__position">Lorem, ipsum.</p>
-                        <span class="bottom-slider__pink-line"></span>
-                        <p class="bottom-slider__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, quo consequuntur fugit est voluptates veritatis id explicabo dolorum et cumque ullam cum tempore rem, dolor ratione dignissimos laboriosam repellendus quas quis! Eaque accusamus repellendus iure animi quaerat? Adipisci temporibus hic ex corporis culpa accusantium illo maiores officia reprehenderit aperiam id modi, velit animi tenetur! Molestias repellendus unde culpa deserunt delectus placeat autem vero, laboriosam dignissimos. Doloribus autem porro eligendi saepe sed vel voluptatibus, officia rem voluptatem esse neque adipisci praesentium, nobis dolor ab atque a nulla perferendis, debitis fuga cum?</p>
-                    </div>
-                </div>
-
-                <ul class="bottom-slider__bullets">
-                    <li class="bottom-slider__bullet bottom-slider__bullet--active"></li>
-                    <li class="bottom-slider__bullet"></li>
-                    <li class="bottom-slider__bullet"></li>
-                </ul>
-            </div>
+           <!-- team-swiper -->
         </section>  
 
         <article class="contact">
@@ -116,7 +68,7 @@
             <a href="https://tg-me.ru/DJnightloud" target="_blank" class="contact__link button button--white">Связаться</a>
         </article>
 
-        <section class="contacts">
+        <section class="contacts" id="contacts">
             <h2 class="contacts__header">Наши контакты</h2>
             <div class="contacts__item">
                 <p class="contacts__photo contacts__photo--email"></p>

@@ -1,4 +1,4 @@
-import Abstract from './abstract.js';
+import Abstract from '../abstract.js';
 
 function createSliderTemplate() {
     return (`<div class="info__slider slider">

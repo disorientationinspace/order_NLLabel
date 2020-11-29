@@ -1,5 +1,5 @@
-import Abstract from './abstract.js';
-import { render, remove } from '../utils/render.js';
+import Abstract from '../abstract.js';
+import { render, remove } from '../../utils/render.js';
 
 
 function createSliderNavigationTemplate(sliderData, activeSlideName) {

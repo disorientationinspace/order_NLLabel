@@ -9,7 +9,6 @@ export function render(parent, child, position = RenderPosition.BEFOREEND) {
     if (child instanceof Abstract) {
         child = child.getElement();
     }
-
     
     switch (position) {
         case RenderPosition.AFTERBEGIN:
@@ -38,4 +37,29 @@ export function addCSSClass(element, ...classList) {
     classList.forEach(className => {
         element.classList.add(className);
     })
+}
+
+export function getWidth(element) {
+    if (element instanceof Abstract) {
+        element = element.getElement();
+    }
+
+    return window.getComputedStyle(element).width.slice(0, -2);
+}
+
+export function setWidth(element, width) {
+    if (element instanceof Abstract) {
+        element = element.getElement();
+    }
+
+    element.style.width = width + 'px';
+}
+
+export function setXTranslate(element, translate) {
+    if (element instanceof Abstract) {
+        element = element.getElement();
+    }
+
+    element.style.transition = 'all 0.5s';
+    element.style.transform = `translateX(-${translate})`;
 }

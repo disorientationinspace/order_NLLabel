@@ -1,6 +1,6 @@
-import SliderView from '../view/slider.js';
-import SlideView from '../view/slide.js';
-import SliderNavigation from '../view/slider-navigation.js';
+import SliderView from '../view/slider/slider.js';
+import SlideView from '../view/slider/slide.js';
+import SliderNavigation from '../view/slider/slider-navigation.js';
 import { render, remove } from '../utils/render.js';
 
 const infoSection = document.querySelector('.info');
