@@ -66,8 +66,6 @@ export default class Page {
     }
 
     _onDropdownClick() {
-
-        console.log('Lol');
         info.scrollIntoView({ behavior: 'smooth' });
     }
 }

@@ -12,7 +12,8 @@ function browsersync() {
   browserSync.init({
     server: { baseDir: "app/" },
     notify: false,
-    online: true
+    online: true,
+    tunnel: true
   })
 }
 

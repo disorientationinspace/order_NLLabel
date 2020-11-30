@@ -90,15 +90,16 @@
         }
     }
 
-    &__button {
+    &__link {
         order: 4;
 
-        width: 150px;
+        margin-right: auto;
 
         grid-column: 1;
         margin-top: 120px;
 
         @include mobile {
+            margin-right: 0;
             margin-top: 20px;
         }
     }

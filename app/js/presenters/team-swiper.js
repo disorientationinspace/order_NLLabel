@@ -18,6 +18,7 @@ export default class TeamSwiper {
         this._teamSwiperInnerComponent = null;
         this._teamNavigationComponent = null;
 
+        this._onTeamSwiperTouchStart = this._onTeamSwiperTouchStart.bind(this);
         this._onNavigationClick = this._onNavigationClick.bind(this);
     }
 
@@ -32,12 +33,13 @@ export default class TeamSwiper {
         this._renderTeamSwiperInner();
         this._renderTeamMembers(teamData);
         this._renderTeamNavigation(this._currentSlideIndex);
-        this._showSlide(2);
+        this._showSlide(0);
     }
     
     _renderTeamSwiperInner() {
         this._teamSwiperInnerComponent = new TeamSwiperInnerView();
-        
+        this._teamSwiperInnerComponent.setOnSwiperTouchStart(this._onTeamSwiperTouchStart);
+
         const swiperInnerWidth = getWidth(this._teamSwiperComponent) * this._slidesTotal;
 
         setWidth(this._teamSwiperInnerComponent, swiperInnerWidth);
@@ -64,7 +66,7 @@ export default class TeamSwiper {
     _showSlide(slideIndex) {
         const translate = slideIndex / this._slidesTotal * 100 + '%'; 
 
-        setXTranslate(this._teamSwiperInnerComponent, translate);
+        this._teamSwiperInnerComponent.translateByX(translate);
 
         this._teamNavigationComponent.updateCurrentSlide(slideIndex);
     }
@@ -79,5 +81,52 @@ export default class TeamSwiper {
                 }
             })    
         }
+    }
+
+    _onTeamSwiperTouchStart(evt) {
+        const SLIDER_Y_CHANGE = 8;
+
+        let startCoords = {
+            X: evt.touches[0].clientX,
+            Y: evt.touches[0].clientY
+        };
+
+        let translateX = 0;
+
+        console.log('touch');
+
+        this._onTeamSwiperTouchMove = evt => {
+            
+            const changeCoords = {
+                X: evt.touches[0].clientX - startCoords.X,
+                Y: evt.touches[0].clientY - startCoords.Y
+            };
+
+            if (Math.abs(changeCoords.Y) < SLIDER_Y_CHANGE) {
+                evt.preventDefault();
+            }
+
+            startCoords = {
+                X: evt.touches[0].clientX,
+                Y: evt.touches[0].clientY
+            };
+
+            translateX += changeCoords.X;
+        };
+        
+        this._onTeamSwiperTouchEnd = evt => {
+            if (translateX < -this._slideWidth/4 && this._currentSlideIndex < this._slidesTotal - 1) {
+                this._currentSlideIndex++;
+            } else if (translateX > this._slideWidth / 4 && this._currentSlideIndex > 0) {
+                this._currentSlideIndex--;
+            }
+
+            this._showSlide(this._currentSlideIndex);
+            this._teamSwiperInnerComponent.removeOnSwiperTouchMove();
+            this._teamSwiperInnerComponent.removeOnSwiperTouchEnd();
+        }
+
+        this._teamSwiperInnerComponent.setOnSwiperTouchMove(this._onTeamSwiperTouchMove);
+        this._teamSwiperInnerComponent.setOnSwiperTouchEnd(this._onTeamSwiperTouchEnd);
     }
 }   
