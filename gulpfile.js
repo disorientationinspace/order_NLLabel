@@ -27,6 +27,15 @@ function scripts() {
   .pipe(browserSync.stream());
 }
 
+function scriptsbuild() {
+  return src([
+    "app/js/**/*",
+    "app/js/*"
+])
+  .pipe(uglify())
+  .pipe(dest("dist/js/"));
+}
+
 function styles() {
   return src(["app/sass/**/app.scss"])
         .pipe(sass())
@@ -39,9 +48,9 @@ function styles() {
 
 function images() {
   return src("app/img/**/*")
-        .pipe(newer("app/images/dist"))
+        .pipe(newer("dist/img/"))
         .pipe(imagemin())
-        .pipe(dest("app/images/dist"))
+        .pipe(dest("dist/img/"))
 }
 
 function startwatch() {
@@ -53,17 +62,18 @@ function startwatch() {
 function build() {
   return src([
     "app/css/**.min.css",
-    "app/js/**/*.min.js",
-    "app/images/dist/**/*",
+    "app/js/**/*.js",
     "app/**/*.html",
+    "app/fonts/*",
   ], { base: "app" })
   .pipe(dest("dist"))
 }
+
 
 exports.browsersync = browsersync;
 exports.scripts     = scripts;
 exports.styles      = styles;
 exports.img         = images;
-exports.build       = series(styles, scripts, images, build)
+exports.build       = series(styles, scripts, images, scriptsbuild, build)
 
 exports.default     = parallel(styles, browsersync, startwatch);
