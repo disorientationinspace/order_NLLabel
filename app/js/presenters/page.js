@@ -30,7 +30,6 @@ export default class Page {
         this._renderIntro();
         this._renderSlider();
         this._renderTeamSwiper();
-        this._renderMap();
     }
 
     _renderIntro() {
