@@ -44,7 +44,7 @@ export function getWidth(element) {
         element = element.getElement();
     }
 
-    return window.getComputedStyle(element).width.slice(0, -2);
+    return window.getComputedStyle(element).width.replace(/\D/g, '');
 }
 
 export function setWidth(element, width) {

@@ -1,39 +1,19 @@
 const { dest, src, watch, parallel, series } = require("gulp");
 const browserSync        = require("browser-sync").create();
 const concat             = require("gulp-concat");
-const uglify             = require("gulp-uglify-es").default;
 const sass               = require("gulp-sass");
 const autoprefixer       = require("gulp-autoprefixer");
 const cleancss           = require("gulp-clean-css");
 const imagemin           = require("gulp-imagemin");
 const newer              = require("gulp-newer");
+const webpack            = require('webpack-stream');
 
 function browsersync() {
   browserSync.init({
-    server: { baseDir: "app/" },
+    server: { baseDir: "dist/" },
     notify: false,
     online: true,
-    tunnel: true
   })
-}
-
-function scripts() {
-  return src([
-    "app/js/app.js"
-])
-  .pipe(concat("app.min.js"))
-  .pipe(uglify())
-  .pipe(dest("app/js/"))
-  .pipe(browserSync.stream());
-}
-
-function scriptsbuild() {
-  return src([
-    "app/js/**/*",
-    "app/js/*"
-])
-  .pipe(uglify())
-  .pipe(dest("dist/js/"));
 }
 
 function styles() {
@@ -54,15 +34,20 @@ function images() {
 }
 
 function startwatch() {
-  watch(["app/js/**/*.js", "!app/js/**/*.min.js"], scripts);
-  watch(["app/sass/**/*.scss"], styles);
-  watch("app/**/*.html").on("change", browserSync.reload);
+  watch(["app/js/**/*", "app/js/*.js"], scripts)
+  watch(["app/sass/**/*.scss"], series(styles, build));
+  watch("app/**/*.html").on("change", series(build, browserSync.reload));
+}
+
+function scripts() {
+  return src('app/js/app.js')
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(dest('dist/js'))
 }
 
 function build() {
   return src([
     "app/css/**.min.css",
-    "app/js/**/*.js",
     "app/**/*.html",
     "app/fonts/*",
   ], { base: "app" })
@@ -71,9 +56,8 @@ function build() {
 
 
 exports.browsersync = browsersync;
-exports.scripts     = scripts;
 exports.styles      = styles;
 exports.img         = images;
-exports.build       = series(styles, scripts, images, scriptsbuild, build)
+exports.build       = series(styles, scripts, images, build);
 
-exports.default     = parallel(styles, browsersync, startwatch);
+exports.default     = parallel(scripts, styles, browsersync, startwatch);

@@ -2,7 +2,6 @@ import Abstract from '../abstract.js';
 
 function createTeamMemberTemplate(teamMemberData) {
     const {img, name, position, description} = teamMemberData;
-
     return (`<div class="bottom-slider__tabcontent">
         <p class="bottom-slider__photo-container">
             <img src=${img} alt="${name}" class="bottom-slider__photo" width = "auto" height = "auto">    
