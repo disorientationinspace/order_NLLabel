@@ -4,4 +4,8 @@
 
 .tns-horizontal.tns-subpixel > .tns-item {
     display: grid;
+
+    @include mobile {
+        display: flex;
+    }
 }
