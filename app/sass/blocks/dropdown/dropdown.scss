@@ -19,7 +19,7 @@
 
     &:hover {
         transition-duration: .2s;
-        transform: scale(1.1);
+        transform: scale(1.1) translateX(-50%);
         opacity: .7;
     }
 

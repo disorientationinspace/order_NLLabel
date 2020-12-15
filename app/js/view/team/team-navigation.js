@@ -13,10 +13,8 @@ function createTeamNavigationTemplate(total, currentIndex) {
         </ul>`)
 }
 
-function createNavigationElementTemplate(active) {
-    const activeCSSClass = active ? 'bottom-slider__bullet--active' : '';
-
-    return (`<li class="bottom-slider__bullet ${activeCSSClass}"></li>`)
+function createNavigationElementTemplate() {
+    return (`<li class="bottom-slider__bullet"></li>`)
 }
 
 

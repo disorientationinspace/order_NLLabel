@@ -2,8 +2,8 @@ import TeamSwiperView from '../view/team/team-swiper.js';
 import TeamSwiperInnerView from '../view/team/team-swiper-inner.js';
 import TeamMemberView from '../view/team/team-member.js';
 import TeamNavigationView from '../view/team/team-navigation.js';
-import { render, setWidth, getWidth, setXTranslate } from '../utils/render.js';
- 
+import { render, getWidth } from '../utils/render.js';
+import { tns as tinySliderSetup } from '../../../node_modules/tiny-slider/src/tiny-slider';
 
 export default class TeamSwiper {
     constructor(container, teamModel) {
@@ -17,10 +17,6 @@ export default class TeamSwiper {
         this._teamSwiperComponent = null;
         this._teamSwiperInnerComponent = null;
         this._teamNavigationComponent = null;
-
-        this._onTeamSwiperTouchStart = this._onTeamSwiperTouchStart.bind(this);
-        this._onTeamSwiperMouseDown = this._onTeamSwiperMouseDown.bind(this);
-        this._onNavigationClick = this._onNavigationClick.bind(this);
     }
 
     init() {
@@ -34,17 +30,20 @@ export default class TeamSwiper {
         this._renderTeamSwiperInner();
         this._renderTeamMembers(teamData);
         this._renderTeamNavigation(this._currentSlideIndex);
-        this._showSlide(0);
+        tinySliderSetup({
+            container: this._teamSwiperInnerComponent.getElement(),
+            items: 1,
+            slideBy: 'page',
+            mouseDrag: true,
+            autoplay: true,
+            navContainer: this._teamNavigationComponent.getElement(),
+            autoplayButtonOutput: false,
+            controls: false,
+        });
     }
     
     _renderTeamSwiperInner() {
         this._teamSwiperInnerComponent = new TeamSwiperInnerView();
-        this._teamSwiperInnerComponent.setOnSwiperTouchStart(this._onTeamSwiperTouchStart);
-        this._teamSwiperInnerComponent.setOnSwiperMouseDown(this._onTeamSwiperMouseDown);
-
-        const swiperInnerWidth = getWidth(this._teamSwiperComponent) * this._slidesTotal;
-
-        setWidth(this._teamSwiperInnerComponent, swiperInnerWidth);
 
         render(this._teamSwiperComponent, this._teamSwiperInnerComponent);
     }
@@ -52,7 +51,6 @@ export default class TeamSwiper {
     _renderTeamMembers(teamData) {
         teamData.forEach(teamMember => {
             const teamMemberComponent = new TeamMemberView(teamMember);
-            setWidth(teamMemberComponent, this._slideWidth);
 
             render(this._teamSwiperInnerComponent, teamMemberComponent);
         })
@@ -61,112 +59,6 @@ export default class TeamSwiper {
     _renderTeamNavigation(currentMember) {
         this._teamNavigationComponent = new TeamNavigationView(this._slidesTotal, currentMember);
 
-        this._teamNavigationComponent.setOnNavigationClick(this._onNavigationClick);
         render(this._teamSwiperComponent, this._teamNavigationComponent);
-    }
-
-    _showSlide(slideIndex) {
-        const translate = slideIndex / this._slidesTotal * 100 + '%'; 
-
-        this._teamSwiperInnerComponent.translateByX(translate);
-
-        this._teamNavigationComponent.updateCurrentSlide(slideIndex);
-    }
-
-    _onNavigationClick(evt) {
-        if (evt.target.classList.contains('bottom-slider__bullet')) {
-            const bullets = this._teamNavigationComponent.getBulletNodes();
-
-            bullets.forEach((bullet, index) => {
-                if (bullet === evt.target) {
-                    this._showSlide(index);
-                }
-            })    
-        }
-    }
-
-    _onTeamSwiperMouseDown(evt) {
-        evt.preventDefault();
-
-        let startCoords = {
-            X: evt.clientX
-        };
-
-        let translateX = 0;
-
-        this._onTeamSwiperMouseMove = (evt) => {
-            evt.preventDefault();
-
-            const changeCoords = {
-                X: evt.clientX - startCoords.X,
-            }
-
-            startCoords = {
-                X: evt.clientX
-            }
-
-            translateX += changeCoords.X;
-        }
-
-        this._onTeamSwiperMouseUp = (evt) => {
-            if (translateX < -this._slideWidth/4 && this._currentSlideIndex < this._slidesTotal - 1) {
-                this._currentSlideIndex++;
-                this._showSlide(this._currentSlideIndex);
-            } else if (translateX > this._slideWidth / 4 && this._currentSlideIndex > 0) {
-                this._currentSlideIndex--;
-                this._showSlide(this._currentSlideIndex);
-            }
-
-            this._teamSwiperInnerComponent.removeOnSwiperMouseMove();
-            document.removeEventListener(`mouseup`, this._onTeamSwiperMouseUp);
-        }
- 
-        this._teamSwiperInnerComponent.setOnSwiperMouseMove(this._onTeamSwiperMouseMove);
-        document.addEventListener('mouseup', this._onTeamSwiperMouseUp);
-    }
-
-    _onTeamSwiperTouchStart(evt) {
-        const SLIDER_Y_CHANGE = 10;
-
-        let startCoords = {
-            X: evt.touches[0].clientX,
-            Y: evt.touches[0].clientY
-        };
-
-        let translateX = 0;
-
-        this._onTeamSwiperTouchMove = evt => {
-            
-            const changeCoords = {
-                X: evt.touches[0].clientX - startCoords.X,
-                Y: evt.touches[0].clientY - startCoords.Y
-            };
-
-            if (Math.abs(changeCoords.Y) < SLIDER_Y_CHANGE) {
-                evt.preventDefault();
-            }
-
-            startCoords = {
-                X: evt.touches[0].clientX,
-                Y: evt.touches[0].clientY
-            };
-
-            translateX += changeCoords.X;
-        };
-        
-        this._onTeamSwiperTouchEnd = evt => {
-            if (translateX < -this._slideWidth/4 && this._currentSlideIndex < this._slidesTotal - 1) {
-                this._currentSlideIndex++;
-            } else if (translateX > this._slideWidth / 4 && this._currentSlideIndex > 0) {
-                this._currentSlideIndex--;
-            }
-
-            this._showSlide(this._currentSlideIndex);
-            this._teamSwiperInnerComponent.removeOnSwiperTouchMove();
-            document.addEventListener(`touchend`, this._onTeamSwiperTouchEnd);
-        }
-
-        this._teamSwiperInnerComponent.setOnSwiperTouchMove(this._onTeamSwiperTouchMove);
-        document.addEventListener('touchend', this._onTeamSwiperTouchEnd);
     }
 }   

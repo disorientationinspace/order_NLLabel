@@ -34,14 +34,15 @@ function images() {
 }
 
 function startwatch() {
-  watch(["app/js/**/*", "app/js/*.js"], scripts)
+  watch(["app/js/**/*.js", "app/js/*.js"]).on("change", series(scripts, browserSync.reload))
   watch(["app/sass/**/*.scss"], series(styles, build));
   watch("app/**/*.html").on("change", series(build, browserSync.reload));
 }
 
 function scripts() {
+  console.log(1);
   return src('app/js/app.js')
-    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(webpack(require('./webpack.config.js')))
     .pipe(dest('dist/js'))
 }
 

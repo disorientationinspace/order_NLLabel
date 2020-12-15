@@ -8,10 +8,11 @@ import { RenderPosition } from '../const.js';
 const info = document.querySelector('.info');
 const team = document.querySelector('.team');
 export default class Page {
-    constructor(container, sliderModel, teamModel) {
+    constructor(container, sliderModel, teamModel, introModel) {
         this._container = container;
         this._sliderModel = sliderModel;
         this._teamModel = teamModel;
+        this._introModel = introModel;
 
         this._mapComponent = null;
         this._introComponent = null;
@@ -35,6 +36,8 @@ export default class Page {
     _renderIntro() {
         this._introComponent = new IntroView();
         this._introComponent.setOnDropdownClick(this._onDropdownClick);
+        const introPhrases = this._introModel.getData(); 
+        this._introComponent.animateSloganText(introPhrases);
 
         render(this._container, this._introComponent, RenderPosition.AFTERBEGIN);
     }
