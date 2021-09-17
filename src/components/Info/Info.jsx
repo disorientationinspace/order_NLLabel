@@ -1,5 +1,4 @@
 import React from "react";
-import InfoSlider from "../InfoSlider/InfoSlider";
 import Link from "../Link/Link";
 
 import "./Info.scss";
@@ -7,7 +6,6 @@ import "./Info.scss";
 const Info = () => {
   return (
     <section className="info" id="about-us">
-      <InfoSlider />
       <div className="info__about-us">
         <h2 className="info__header">Что такое NL Label?</h2>
         <p className="info__description">

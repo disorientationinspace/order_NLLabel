@@ -1,23 +1,16 @@
 export const TEAM_DATA = [
   {
-    name: "NightLoud",
-    position: "Основатель NL Label",
+    name: "Артем 'NightLoud'",
+    position: "NL Label CEO",
     description:
       "Nightloud основал собственный лейбл в 2020 году, в возрасте 17 лет. В этот лейбл вложена вся его мечта - помочь молодым музыкантам пробраться на вершины музыкальных олимпов. И он готов действовать.",
     img: "skrillex-photo-desktop@1x.png",
   },
   {
-    name: "Arseniy 'EPAM' Solaridze",
-    position: "Хип-хопер",
+    name: "Vitali 'Wito Divaro' Litvinovich",
+    position: "Software Engineer",
     description:
-      "Арсений всегда знал, что успешные хип-хоп исполнители - это те, что записывают музыку от души. Именно поэтому в его музыке можно прочувствовать все фибры его внутреннего состояния, и именно поэтому его так обожают фанаты!",
-    img: "arseniy-solaridze-photo-desktop.jpg",
-  },
-  {
-    name: "Wito Divaro",
-    position: "Фристайлер",
-    description:
-      "Wito Divaro начал свою карьеру хип-хоп фристайлера, в шутку записав пару треков. Он стал неотъемлимой частью команды Nightloud'а, и теперь красуется на одном из этих слайдов!",
+      "Виталий начал заниматься разработкой веб-приложений в 2020 году, как раз в год создания самого лейбла. Этот сайт стал его первым коммерческим портфолио.",
     img: "witodivaro-photo-desktop.jpg",
   },
 ];

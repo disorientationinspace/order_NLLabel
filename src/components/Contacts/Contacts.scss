@@ -82,6 +82,16 @@
     text-transform: uppercase;
   }
 
+  &__link {
+    text-shadow: 0 0 1px black;
+    transition: opacity 0.1s ease;
+
+    &:hover {
+      transition: opacity 0.15s ease;
+      opacity: 0.6;
+    }
+  }
+
   &__photo {
     position: relative;
 

@@ -9,3 +9,9 @@ export function isElementInViewport(el) {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
+
+export function isElementVisible(el) {
+  const rect = el.getBoundingClientRect();
+
+  return rect.bottom > 0 && rect.top < window.innerHeight;
+}

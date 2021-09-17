@@ -14,7 +14,7 @@ const Team = () => {
       <p className="team__info">
         Ознакомьтесь с нашей профессиональной командой
       </p>
-      <Swiper spaceBetween={50} slidesPerView={1}>
+      <Swiper className="team__slider" spaceBetween={50} slidesPerView={1}>
         {TEAM_DATA.map((member) => (
           <SwiperSlide key={member.name}>
             <TeamMember member={member} />

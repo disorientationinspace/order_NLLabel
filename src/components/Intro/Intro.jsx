@@ -5,7 +5,7 @@ import "./Intro.scss";
 
 import animateText from "../../helpers/text-animation";
 
-const Intro = () => {
+const Intro = React.forwardRef((_, ref) => {
   const textRef = useRef();
 
   useEffect(() => {
@@ -23,16 +23,24 @@ const Intro = () => {
     }
   }, [textRef]);
 
+  const handleDropdownClick = () => {
+    window.scrollTo({ top: window.innerHeight + 10 });
+  };
+
   return (
-    <section className="intro" id="intro">
+    <section ref={ref} className="intro" id="intro">
       <div className="intro__background"></div>
       <p ref={textRef} className="intro__slogan">
         NL Label - музыка будущего
       </p>
 
-      <Dropdown className="intro__dropdown" />
+      <Dropdown
+        onClick={handleDropdownClick}
+        label="Дальше"
+        className="intro__dropdown"
+      />
     </section>
   );
-};
+});
 
 export default Intro;

@@ -1,10 +1,14 @@
 import React from "react";
 import "./Dropdown.scss";
 
-const Dropdown = ({ className }) => {
+const Dropdown = ({ className, onClick, label }) => {
   return (
-    <button className={`dropdown ${className}`} aria-label="Дальше">
-      <span className="visually-hidden">Дальше</span>
+    <button
+      onClick={onClick}
+      className={`dropdown ${className}`}
+      aria-label={label}
+    >
+      <span className="visually-hidden">{label}</span>
     </button>
   );
 };

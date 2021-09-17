@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { isElementInViewport } from "../../helpers/utils";
+import { isElementVisible } from "../../helpers/utils";
 
 const Anchor = ({ href, className, activeClassName, children }) => {
   const [isActive, setIsActive] = useState(false);
@@ -8,10 +8,10 @@ const Anchor = ({ href, className, activeClassName, children }) => {
   useEffect(() => {
     const elem = document.querySelector(href);
 
-    if (isElementInViewport(elem)) setIsActive(true);
+    if (isElementVisible(elem)) setIsActive(true);
 
     const scrollHandler = () => {
-      if (isElementInViewport(elem)) {
+      if (isElementVisible(elem)) {
         if (!isActive) setIsActive(true);
       } else if (isActive) setIsActive(false);
     };
