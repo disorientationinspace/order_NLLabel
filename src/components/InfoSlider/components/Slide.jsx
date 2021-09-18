@@ -13,7 +13,16 @@ const Slide = ({ slide, isActive }) => {
         <h3 className="slider__sub-header">{subHeader}</h3>
         <div className="slider__sub-wrapper">
           <p className="slider__info">{info}</p>
-          <p className="slider__info slider__info--wide">{details}</p>
+          <p className="slider__info slider__info--wide">
+            {details instanceof Array
+              ? details.map((detail) => (
+                  <>
+                    {detail}
+                    <br />
+                  </>
+                ))
+              : details}
+          </p>
         </div>
       </div>
     </div>

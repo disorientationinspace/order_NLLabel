@@ -21,6 +21,13 @@ const Navigation = () => {
         О нас
       </Anchor>
       <Anchor
+        href="#services"
+        className="navigation__link"
+        activeClassName="navigation__link--active"
+      >
+        Услуги
+      </Anchor>
+      <Anchor
         href="#team"
         className="navigation__link"
         activeClassName="navigation__link--active"

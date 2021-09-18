@@ -7,7 +7,7 @@ const ContactUs = () => {
   return (
     <article className="contact-us">
       <p className="contact-us__slogan">Хотите попробовать? Напишите нам.</p>
-      <Link white className="contact-us__link">
+      <Link color="white" className="contact-us__link">
         Связаться
       </Link>
     </article>
